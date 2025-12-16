@@ -1,17 +1,28 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from "react";
+import { Card } from "../../../../components/ui/Card";
 
-interface ChartContainerProps {
-    title: string;
-    children: ReactNode;
-}
+type ChartContainerProps = {
+  title: string;
+  children: ReactNode;
+  isLoading?: boolean;
+};
 
-export function ChartContainer({ title, children }: ChartContainerProps) {
-    return (
-        <div className="p-4 border rounded-xl bg-white shadow-sm">
-            <h3 className="text-lg font-semibold mb-4">{title}</h3>
-            <div className="w-full h-[300px]">
-                {children}
-            </div>
-        </div>
-    );
+export function ChartContainer({
+  title,
+  children,
+  isLoading,
+}: ChartContainerProps) {
+  return (
+    <Card className="h-[360px]">
+      <div className="mb-4 flex items-center justify-between">
+        <h3 className="text-sm font-medium text-neutral-700">{title}</h3>
+      </div>
+
+      {isLoading ? (
+        <div className="h-full animate-pulse rounded-md bg-neutral-100" />
+      ) : (
+        <div className="h-[300px]">{children}</div>
+      )}
+    </Card>
+  );
 }

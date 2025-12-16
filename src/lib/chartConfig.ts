@@ -8,6 +8,7 @@ import {
   ArcElement,
   Tooltip,
   Legend,
+  ChartOptions,
 } from "chart.js";
 
 export function registerCharts() {
@@ -23,12 +24,12 @@ export function registerCharts() {
   );
 }
 
-export const baseChartOptions = {
+const commonOptions = {
   responsive: true,
   maintainAspectRatio: false,
   animation: {
     duration: 800,
-    easing: "easeOutQuart",
+    easing: "easeOutQuart" as const,
   },
   plugins: {
     legend: {
@@ -36,3 +37,10 @@ export const baseChartOptions = {
     },
   },
 };
+
+export const lineChartOptions: ChartOptions<'line'> = commonOptions;
+
+export const barChartOptions: ChartOptions<'bar'> = commonOptions;
+
+// Deprecated: Use lineChartOptions or barChartOptions instead
+export const baseChartOptions = commonOptions;
