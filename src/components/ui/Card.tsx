@@ -1,9 +1,20 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from "react";
+import clsx from "clsx";
 
-export function Card({ children, className }: { children: ReactNode; className?: string }) {
-    return (
-        <div className={`p-4 rounded-lg border bg-white shadow-sm ${className || ''}`}>
-            {children}
-        </div>
-    );
+type CardProps = {
+  children: ReactNode;
+  className?: string;
+};
+
+export function Card({ children, className }: CardProps) {
+  return (
+    <div
+      className={clsx(
+        "rounded-xl border border-neutral-200 bg-white p-4 shadow-sm",
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
 }

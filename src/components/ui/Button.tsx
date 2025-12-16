@@ -1,21 +1,26 @@
-import React from 'react';
+import { ButtonHTMLAttributes } from "react";
+import clsx from "clsx";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: 'primary' | 'secondary' | 'outline';
-}
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: "primary" | "secondary";
+};
 
-export function Button({ variant = 'primary', className, ...props }: ButtonProps) {
-    const baseStyles = "px-4 py-2 rounded font-medium transition-colors";
-    const variants = {
-        primary: "bg-blue-600 text-white hover:bg-blue-700",
-        secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",
-        outline: "border border-gray-300 hover:bg-gray-50",
-    };
-
-    return (
-        <button
-            className={`${baseStyles} ${variants[variant]} ${className || ''}`}
-            {...props}
-        />
-    );
+export function Button({
+  className,
+  variant = "primary",
+  ...props
+}: ButtonProps) {
+  return (
+    <button
+      className={clsx(
+        "inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition",
+        variant === "primary" &&
+          "bg-black text-white hover:bg-neutral-800",
+        variant === "secondary" &&
+          "bg-neutral-100 text-black hover:bg-neutral-200",
+        className
+      )}
+      {...props}
+    />
+  );
 }

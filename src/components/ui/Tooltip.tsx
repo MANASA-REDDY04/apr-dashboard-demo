@@ -1,12 +1,27 @@
-import React, { ReactNode } from 'react';
+"use client";
 
-export function Tooltip({ children, content }: { children: ReactNode; content: string }) {
-    return (
-        <div className="group relative inline-block">
-            {children}
-            <div className="hidden group-hover:block absolute z-10 px-2 py-1 text-xs text-white bg-black rounded -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap">
-                {content}
-            </div>
-        </div>
-    );
+import * as TooltipPrimitive from "@radix-ui/react-tooltip";
+import { ReactNode } from "react";
+
+type TooltipProps = {
+  content: string;
+  children: ReactNode;
+};
+
+export function Tooltip({ content, children }: TooltipProps) {
+  return (
+    <TooltipPrimitive.Provider>
+      <TooltipPrimitive.Root>
+        <TooltipPrimitive.Trigger asChild>
+          {children}
+        </TooltipPrimitive.Trigger>
+        <TooltipPrimitive.Content
+          sideOffset={6}
+          className="rounded bg-black px-2 py-1 text-xs text-white"
+        >
+          {content}
+        </TooltipPrimitive.Content>
+      </TooltipPrimitive.Root>
+    </TooltipPrimitive.Provider>
+  );
 }

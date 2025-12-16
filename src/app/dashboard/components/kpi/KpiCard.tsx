@@ -1,26 +1,53 @@
-import React from 'react';
+// src/app/dashboard/components/kpi/KpiCard.tsx
+"use client";
 
-interface KpiCardProps {
-    title: string;
-    value: string | number;
-    change?: number;
-    trend?: 'up' | 'down' | 'neutral';
-}
+import { Card } from "../../../../components/ui/Card";
+import { Tooltip } from "../../../../components/ui/Tooltip";
+import { IconArrowUpRight, IconArrowDownRight } from "@tabler/icons-react";
+import clsx from "clsx";
 
-export function KpiCard({ title, value, change, trend }: KpiCardProps) {
-    return (
-        <div className="p-4 rounded-xl border bg-white shadow-sm">
-            <p className="text-sm text-gray-500 font-medium">{title}</p>
-            <div className="mt-2 flex items-baseline gap-2">
-                <h3 className="text-2xl font-bold">{value}</h3>
-                {change !== undefined && (
-                    <span className={`text-xs font-medium px-1.5 py-0.5 rounded ${trend === 'up' ? 'bg-green-100 text-green-700' :
-                            trend === 'down' ? 'bg-red-100 text-red-700' : 'bg-gray-100'
-                        }`}>
-                        {change > 0 ? '+' : ''}{change}%
-                    </span>
-                )}
-            </div>
+type KpiCardProps = {
+  label: string;
+  value: number | string;
+  changePct: number;
+  icon?: React.ReactNode;
+};
+
+export function KpiCard({
+  label,
+  value,
+  changePct,
+  icon,
+}: KpiCardProps) {
+  const isPositive = changePct >= 0;
+
+  return (
+    <Card className="flex items-center justify-between gap-4">
+      <div>
+        <p className="text-sm text-neutral-500">{label}</p>
+
+        <div className="mt-1 flex items-center gap-2">
+          <p className="text-2xl font-semibold">{value}</p>
+
+          <Tooltip content="Compared to previous period">
+            <span
+              className={clsx(
+                "flex items-center text-sm font-medium",
+                isPositive ? "text-green-600" : "text-red-600"
+              )}
+            >
+              {isPositive ? (
+                <IconArrowUpRight size={16} />
+              ) : (
+                <IconArrowDownRight size={16} />
+              )}
+              {Math.abs(changePct)}%
+            </span>
+          </Tooltip>
         </div>
-    );
+      </div>
+
+      {icon && <div className="text-neutral-700">{icon}</div>}
+    </Card>
+  );
 }

@@ -1,6 +1,8 @@
+// src/services/dashboard.service.ts
 import { api } from "./axios";
 import { DashboardOverview } from "../types/dashboard";
 import { mockDashboardOverview } from "../data/mock/charts";
+import { mockKpis } from "../data/mock/kpis";
 
 export async function getDashboardOverview(
   params?: {
@@ -15,5 +17,8 @@ export async function getDashboardOverview(
 
   await new Promise((resolve) => setTimeout(resolve, 500)); // simulate latency
 
-  return mockDashboardOverview;
+  return {
+    ...mockDashboardOverview,
+    kpis: mockKpis,
+  };
 }
