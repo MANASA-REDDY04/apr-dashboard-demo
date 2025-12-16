@@ -1,4 +1,28 @@
-export const MOCK_KPIS = [
-    { id: '1', title: 'Total Revenue', value: '$45,231', change: 12.5, trend: 'up' },
-    { id: '2', title: 'Active Users', value: '2,345', change: -2.4, trend: 'down' },
+import { KpiMetric } from "../../types/dashboard";
+
+export const mockKpis: KpiMetric[] = [
+  {
+    id: "sessions",
+    label: "Sessions",
+    value: 12450,
+    changePct: 6.2,
+  },
+  {
+    id: "users",
+    label: "Users",
+    value: 8320,
+    changePct: 3.1,
+  },
+  {
+    id: "conversions",
+    label: "Conversions",
+    value: 640,
+    changePct: -1.4,
+  },
+  {
+    id: "revenue",
+    label: "Revenue",
+    value: 98250,
+    changePct: 8.9,
+  },
 ];

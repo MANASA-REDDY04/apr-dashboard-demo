@@ -1,6 +1,8 @@
-export interface AppEvent {
-    id: string;
-    name: string;
-    timestamp: string;
-    status: 'success' | 'failed' | 'pending';
-}
+export type EventRecord = {
+  id: string;
+  name: string;
+  userId: string;
+  sessionId: string;
+  timestamp: string;
+  channel: string;
+};
