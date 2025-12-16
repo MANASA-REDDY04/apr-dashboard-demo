@@ -32,8 +32,8 @@ export function LineChart({ title, data, isLoading }: LineChartProps) {
   };
 
   return (
-    <ChartContainer title={title} isLoading={isLoading}>
-      <Line data={chartData} options={baseChartOptions} />
-    </ChartContainer>
+    <div className="h-full w-full">
+         <Line data={chartData} options={lineChartOptions} />
+    </div>
   );
 }

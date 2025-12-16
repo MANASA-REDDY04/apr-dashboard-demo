@@ -4,6 +4,7 @@
 import { Card } from "../../../../components/ui/Card";
 import { EventRecord } from "../../../../types/events";
 import { mockEvents } from "../../../../data/mock/events";
+import { formatDateTime } from "../../../../utils/date";
 
 export function EventsTable() {
   const events: EventRecord[] = mockEvents;
@@ -33,8 +34,8 @@ export function EventsTable() {
                 <td>{event.userId}</td>
                 <td>{event.sessionId}</td>
                 <td>{event.channel}</td>
-                <td className="text-neutral-500">
-                  {new Date(event.timestamp).toLocaleString()}
+                <td className="text-neutral-500" suppressHydrationWarning>
+                  {formatDateTime(event.timestamp)}
                 </td>
               </tr>
             ))}

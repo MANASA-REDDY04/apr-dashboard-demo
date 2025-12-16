@@ -20,6 +20,24 @@ export const mockCampaigns: Campaign[] = [
     conversions: 310,
     spend: 21000,
   },
+  {
+    id: "c3",
+    name: "Summer Sale Email",
+    channel: "Email",
+    impressions: 45000,
+    clicks: 12500,
+    conversions: 890,
+    spend: 1500,
+  },
+  {
+    id: "c4",
+    name: "Affiliate Partner Program",
+    channel: "Referral",
+    impressions: 25000,
+    clicks: 4500,
+    conversions: 210,
+    spend: 5000,
+  },
 ];
 
 export const mockAttributionResults: AttributionResult[] = [
@@ -32,5 +50,15 @@ export const mockAttributionResults: AttributionResult[] = [
     channel: "Social",
     conversions: 310,
     revenue: 42000,
+  },
+  {
+    channel: "Email",
+    conversions: 890,
+    revenue: 28000,
+  },
+  {
+    channel: "Referral",
+    conversions: 210,
+    revenue: 15000,
   },
 ];

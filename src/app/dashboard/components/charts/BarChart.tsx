@@ -24,7 +24,7 @@ export function BarChart({ title, data, isLoading }: BarChartProps) {
       {
         label: "Revenue",
         data: data.map((d) => d.revenue),
-        backgroundColor: "#000",
+        backgroundColor: "rgba(99, 102, 241, 0.8)", // Indigo
       },
     ],
   };

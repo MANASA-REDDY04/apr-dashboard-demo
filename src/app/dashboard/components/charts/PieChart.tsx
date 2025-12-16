@@ -24,10 +24,10 @@ export function PieChart({ title, data, isLoading }: PieChartProps) {
       {
         data: data.map((d) => d.revenue),
         backgroundColor: [
-          "#111827", // neutral-900
-          "#374151", // neutral-700
-          "#6B7280", // neutral-500
-          "#9CA3AF", // neutral-400
+          "#6366f1", // Indigo-500
+          "#8b5cf6", // Violet-500
+          "#10b981", // Emerald-500
+          "#06b6d4", // Cyan-500
         ],
         borderWidth: 0,
       },

@@ -15,6 +15,7 @@ export type DashboardOverview = {
   sessions: TimeSeriesPoint[];
   conversions: TimeSeriesPoint[];
   revenue: TimeSeriesPoint[];
+  attribution?: AttributionResult[]; // Added optional for merging
 };
 
 export type AttributionResult = {

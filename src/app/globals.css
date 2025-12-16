@@ -4,3 +4,70 @@ html,
 body {
   height: 100%;
 }
+
+@theme {
+  --color-gradient-indigo-start: #6366f1;
+  --color-gradient-indigo-end: #8b5cf6;
+  
+  --color-gradient-emerald-start: #10b981;
+  --color-gradient-emerald-end: #14b8a6;
+  
+  --color-gradient-rose-start: #f43f5e;
+  --color-gradient-rose-end: #f97316;
+  
+  --color-gradient-blue-start: #3b82f6;
+  --color-gradient-blue-end: #06b6d4;
+  
+  --color-gradient-violet-start: #8b5cf6;
+  --color-gradient-violet-end: #d946ef;
+}
+
+@layer utilities {
+  .bg-gradient-indigo {
+    background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+    border: 1px solid #c7d2fe;
+  }
+
+  .bg-gradient-blue {
+    background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+    border: 1px solid #bae6fd;
+  }
+
+  .bg-gradient-sky {
+    background: linear-gradient(135deg, #e0f7ff, #bae6fd);
+    border: 1px solid #bae6fd;
+  }
+
+  .bg-gradient-emerald {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    border: 1px solid #a7f3d0;
+  }
+
+  .bg-gradient-mint {
+    background: linear-gradient(135deg, #ccfbf1, #99f6e4);
+    border: 1px solid #99f6e4;
+  }
+
+  .bg-gradient-violet {
+    background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+    border: 1px solid #ddd6fe;
+  }
+
+  .bg-gradient-pink {
+    background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+    border: 1px solid #fbcfe8;
+  }
+
+  .bg-gradient-rose {
+    background: linear-gradient(135deg, #ffe4e6, #fecdd3);
+    border: 1px solid #fecdd3;
+  }
+
+  .bg-gradient-peach {
+    background: linear-gradient(135deg, #ffedd5, #fed7aa);
+    border: 1px solid #fed7aa;
+  }
+}
+
+
+
